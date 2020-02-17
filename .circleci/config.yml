@@ -10,7 +10,4 @@ jobs:
           profile-name: example
       - run: echo "Run your code here"
 workflows:
-  version: 2
-  aws-cli:
-    jobs:
-      - aws-cli-example:
+  version: 2.1
