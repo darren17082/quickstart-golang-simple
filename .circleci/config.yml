@@ -5,10 +5,13 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@0.1.20
 jobs:
-  aws-cli-example:
+  deploy_project:
     executor: aws-cli/default
     steps:
+      - attach_workspace:
+          at: .
       - aws-cli/setup:
-          profile-name: defaulut
-      - run: echo "Run your code here"
-    
+          profile-name: default
+      - run:
+          name: Upload file to S3
+          command: aws s3 sync ./dist/ s3://circle-ci-s3-deploy --delete
