@@ -6,13 +6,13 @@ orbs:
   aws-ecr: circleci/aws-ecr@6.5.0
   aws-ecs: circleci/aws-ecs@0.0.10
 jobs:
-  build_1:
+  build:
     docker: 
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
-   build_2:
+   build:
      docker:
        - image: circleci/ruby:2.4.1
      steps:
